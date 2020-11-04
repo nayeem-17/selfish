@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/nayeem-17/selfish/issues"
   },
-  "homepage": "https://github.com/nayeem-17/selfish#readme"
+  "homepage": "https://github.com/nayeem-17/selfish#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
 }
