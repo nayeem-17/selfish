@@ -1,0 +1,20 @@
+{
+  "name": "selfish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayeem-17/selfish.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nayeem-17/selfish/issues"
+  },
+  "homepage": "https://github.com/nayeem-17/selfish#readme"
+}
