@@ -17,6 +17,7 @@ mongoose.connect(process.env.MONGO_CLOUD, {
     useUnifiedTopology: true
 }).catch(e => {
     console.log("otally Fucked Up , Man!")
+    console.log(e)
 }).then(con => {
     console.log("Connection Established")
 })
