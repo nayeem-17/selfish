@@ -1,0 +1,90 @@
+{
+    "studentName": "Tanvir Hossain Taaha",
+    "salaryPerMonth": 10000,
+    "months": [
+        {
+            "monthNo": 1,
+            "startDate": {
+                "day": 2,
+                "month": 11,
+                "year": 2020
+            },
+            "end": {
+                "day": 2,
+                "month": 11,
+                "year": 2020
+            },
+            "activeDates": [
+                {
+                    "day": 2,
+                    "month": 11,
+                    "year": 2020
+                },
+                {
+                    "day": 2,
+                    "month": 11,
+                    "year": 2020
+                },
+                {
+                    "day": 2,
+                    "month": 11,
+                    "year": 2020
+                },
+                {
+                    "day": 2,
+                    "month": 11,
+                    "year": 2020
+                }
+            ],
+            "dayCount": 4,
+            "dueAmmount": 10000,
+            "address": "address string also co-ordinates can be added for google maps intgration(in my dreams)",
+            "weekDay": "sat,mon,wed",
+            "contact": [
+                {
+                    "relation": "student",
+                    "phone": "+8801764000000"
+                },
+                {
+                    "relation": "mother",
+                    "phone": "+8801764000000"
+                },
+                {
+                    "relation": "father",
+                    "phone": "+8801764000000"
+                }
+            ],
+            "isRunning": true,
+            "payments": [
+                {
+                    "date": {
+                        "day": 2,
+                        "month": 11,
+                        "year": 2020
+                    },
+                    "amount": 5000,
+                    "note": "baki taka 5 tarikhe dibe"
+                },
+                {
+                    "date": {
+                        "day": 2,
+                        "month": 11,
+                        "year": 2020
+                    },
+                    "amount": 5000,
+                    "note": "baki taka 5 tarikhe dibe"
+                },
+                {
+                    "date": {
+                        "day": 2,
+                        "month": 11,
+                        "year": 2020
+                    },
+                    "amount": 5000,
+                    "note": "baki taka 5 tarikhe dibe"
+                }
+            ],
+            "totalEarned": 1000000
+        }
+    ]
+}
