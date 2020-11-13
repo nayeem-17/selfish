@@ -1,11 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const table = require('./models/newdata')
 const morgan = require('morgan')
+const { addData } = require('./controllers/AddData')
 require('dotenv').config()
 
 const port = process.env.PORT || 3000
+console.log(process.env.MONGO_CLOUD)
 
 const app = express()
 app.use(morgan('dev'))
@@ -16,16 +17,13 @@ mongoose.connect(process.env.MONGO_CLOUD, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).catch(e => {
-    console.log("otally Fucked Up , Man!")
+    console.log("Totally Fucked Up With Connecting Database , Man!")
     console.log(e)
 }).then(con => {
     console.log("Connection Established")
 })
 
 app.get('/', (req, res) => res.send('Hello World!'))
-app.get('/test', async (req, res) => {
-    await table.create({})
-    res.send('ok')
-})
+app.get('/test', addData)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

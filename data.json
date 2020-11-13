@@ -9,7 +9,7 @@
                 "month": 11,
                 "year": 2020
             },
-            "end": {
+            "endDate": {
                 "day": 2,
                 "month": 11,
                 "year": 2020
@@ -38,7 +38,7 @@
             ],
             "dayCount": 4,
             "dueAmmount": 10000,
-            "address": "address string also co-ordinates can be added for google maps intgration(in my dreams)",
+            "address": "address string also co-ordinates can be added for google maps intgration(in my dreams) xDD",
             "weekDay": "sat,mon,wed",
             "contact": [
                 {
@@ -83,8 +83,8 @@
                     "amount": 5000,
                     "note": "baki taka 5 tarikhe dibe"
                 }
-            ],
-            "totalEarned": 1000000
+            ]
         }
-    ]
+    ],
+    "totalEarned": 1000000
 }
