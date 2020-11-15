@@ -37,25 +37,25 @@
                     "phone": "+8801764000000"
                 }
             ],
-            "isRunning": true,
-            "payments": [
-                {
-                    "date": "2020-11-13",
-                    "amount": 5000,
-                    "note": "baki taka 5 tarikhe dibe"
-                },
-                {
-                    "date": "2020-11-13",
-                    "amount": 5000,
-                    "note": "baki taka 5 tarikhe dibe"
-                },
-                {
-                    "date": "2020-11-13",
-                    "amount": 5000,
-                    "note": "baki taka 5 tarikhe dibe"
-                }
-            ]
+            "isRunning": true
         }
     ],
-    "totalEarned": 1000000
+    "totalEarned": 1000000,
+    "payments": [
+        {
+            "date": "2020-11-13",
+            "amount": 5000,
+            "note": "baki taka 5 tarikhe dibe"
+        },
+        {
+            "date": "2020-11-13",
+            "amount": 5000,
+            "note": "baki taka 5 tarikhe dibe"
+        },
+        {
+            "date": "2020-11-13",
+            "amount": 5000,
+            "note": "baki taka 5 tarikhe dibe"
+        }
+    ]
 }

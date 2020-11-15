@@ -28,6 +28,7 @@ mongoose
 app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/getfulldata/:id', getTuiTionInfo)
 app.get('/createtuition', createTuiTionInfo)
-app.patch('/updatetuitionInfo/:id', updateTuiTionInfo)
-app.delete('/deletetuitionInfo/:id', deleteTuiTionInfo)
+app.patch('/updatetuitioninfo/:id', updateTuiTionInfo)
+app.delete('/deletetuitioninfo/:id', deleteTuiTionInfo)
+
 app.listen(port, () => console.log(`Example app listening on port ${port} !`))
