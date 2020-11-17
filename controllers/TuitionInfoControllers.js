@@ -18,10 +18,12 @@ exports.getTuiTionInfo = async (req, res) => {
 }
 exports.createTuiTionInfo = async (req, res) => {
     try {
+        console.log(req.headers)
         const data = req.body
         const newData = await TuitionInfo.create(data)
-        res.status(200).json({
+        res.status(201).json({
             message: "OK",
+            data: data,
             id: newData["_id"]
         })
     } catch (error) {

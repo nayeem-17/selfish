@@ -27,7 +27,7 @@ mongoose
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/getfulldata/:id', getTuiTionInfo)
-app.get('/createtuition', createTuiTionInfo)
+app.post('/createtuition', createTuiTionInfo)
 app.patch('/updatetuitioninfo/:id', updateTuiTionInfo)
 app.delete('/deletetuitioninfo/:id', deleteTuiTionInfo)
 
