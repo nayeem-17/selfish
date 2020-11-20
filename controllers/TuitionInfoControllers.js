@@ -5,9 +5,7 @@ exports.getTuiTionInfo = async (req, res) => {
         id = req.params["id"]
         console.log(req.params)
         const data = await TuitionInfo.findById(id)
-        res.status(200).json({
-            data
-        })
+        res.status(200).json(data)
     } catch (error) {
         res.status(404).json({
             message: "Error occured ! Read the documentation carefully",
