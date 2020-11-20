@@ -17,6 +17,5 @@ exports.monthSchema = new mongoose.Schema({
     dueAmount: Number,
     address: String,
     weekDay: [String],
-    contact: [contactSchema],
     isRunning: Boolean
 })

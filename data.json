@@ -23,21 +23,21 @@
                 "thur",
                 "fri"
             ],
-            "contact": [
-                {
-                    "relation": "student",
-                    "phone": "+8801764000000"
-                },
-                {
-                    "relation": "mother",
-                    "phone": "+8801764000000"
-                },
-                {
-                    "relation": "father",
-                    "phone": "+8801764000000"
-                }
-            ],
             "isRunning": true
+        }
+    ],
+    "contacts": [
+        {
+            "relation": "student",
+            "phone": "+8801764000000"
+        },
+        {
+            "relation": "mother",
+            "phone": "+8801764000000"
+        },
+        {
+            "relation": "father",
+            "phone": "+8801764000000"
         }
     ],
     "totalEarned": 1000000,

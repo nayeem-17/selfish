@@ -6,8 +6,7 @@ exports.getTuiTionInfo = async (req, res) => {
         console.log(req.params)
         const data = await TuitionInfo.findById(id)
         res.status(200).json({
-            data: data,
-            message: "OK"
+            data
         })
     } catch (error) {
         res.status(404).json({

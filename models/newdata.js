@@ -60,3 +60,41 @@ const js = {
     }],
     "totalEarned": 1000000
 }
+TuitionInfo = {
+    "paymentInfo":
+        [
+            {
+                "date": "2020-11-11",
+                "amount": 12000,
+                "note": "ehhh!"
+            }],
+    "studentName": "Taha",
+    "monthInfo":
+        [
+            {
+                "monthNo": 1,
+                "dayCount": 2,
+                "dueAmount": 1200,
+                "startDate": "2020-11-12",
+                "endDate": "2020-10-10",
+                "activeDates": ["2020-1-1"],
+                "address": "here",
+                "weekday":
+                    [
+                        "sat",
+                        "sun",
+                        "mon"],
+                "contacts":
+                    [
+                        {
+                            "relation": "nothing",
+                            "phoneNumber": 1212121212
+                        }
+                    ],
+                "isRunning": true,
+                "contactCount": 0
+            }
+        ],
+    "salaryPerMonth": 10000,
+    "totalEarned": 12000
+}
