@@ -2,9 +2,7 @@ const { TuitionInfo } = require("../models/MainModel")
 
 exports.getTuiTionInfo = async (req, res) => {
     try {
-        id = req.params["id"]
-        console.log(req.params)
-        const data = await TuitionInfo.findById(id)
+        const data = await TuitionInfo.find({})
         res.status(200).json(data)
     } catch (error) {
         res.status(404).json({
