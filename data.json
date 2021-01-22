@@ -1,59 +1,65 @@
 {
-    "studentName": "Tanvir Hossain Taaha",
+    "studentName": "Taaha",
     "salaryPerMonth": 10000,
-    "months": [
-        {
-            "monthNo": 1,
-            "startDate": "2020-11-13",
-            "endDate": "2020-11-13",
-            "activeDates": [
-                "2020-11-13",
-                "2020-11-13",
-                "2020-11-13"
-            ],
-            "dayCount": 4,
-            "dueAmmount": 10000,
-            "address": "address string also co-ordinates can be added for google maps intgration(in my dreams) xDD",
-            "weekDay": [
-                "sat",
-                "sun",
-                "mon",
-                "tue",
-                "wed",
-                "thur",
-                "fri"
-            ],
-            "isRunning": true
-        }
+    "address": "address string also co-ordinates can be added for google maps intgration(in my dreams) xDD",
+    "weekDay": [
+        "sat",
+        "sun",
+        "mon",
+        "tue",
+        "wed",
+        "thur",
+        "fri"
     ],
     "contacts": [
         {
+            "_id": "5fb218c018d6840016ff9f54",
             "relation": "student",
-            "phone": "+8801764000000"
+            "phone": 8801764000000
         },
         {
+            "_id": "5fb218c018d6840016ff9f55",
             "relation": "mother",
-            "phone": "+8801764000000"
+            "phone": 8801764000000
         },
         {
+            "_id": "5fb218c018d6840016ff9f56",
             "relation": "father",
-            "phone": "+8801764000000"
+            "phone": 8801764000000
+        }
+    ],
+    "isRunning": true,
+    "months": [
+        {
+            "startDate": "2020-11-13T00:00:00.000Z",
+            "endDate": "2020-11-13T00:00:00.000Z",
+            "activeDates": [
+                "2020-11-13T00:00:00.000Z",
+                "2020-11-13T00:00:00.000Z",
+                "2020-11-13T00:00:00.000Z"
+            ],
+            "_id": "5fb218c018d6840016ff9f53",
+            "monthNo": 1,
+            "dayCount": 4
         }
     ],
     "totalEarned": 1000000,
     "payments": [
         {
-            "date": "2020-11-13",
+            "date": "2020-11-13T00:00:00.000Z",
+            "_id": "5fb218c018d6840016ff9f57",
             "amount": 5000,
             "note": "baki taka 5 tarikhe dibe"
         },
         {
-            "date": "2020-11-13",
+            "date": "2020-11-13T00:00:00.000Z",
+            "_id": "5fb218c018d6840016ff9f58",
             "amount": 5000,
             "note": "baki taka 5 tarikhe dibe"
         },
         {
-            "date": "2020-11-13",
+            "date": "2020-11-13T00:00:00.000Z",
+            "_id": "5fb218c018d6840016ff9f59",
             "amount": 5000,
             "note": "baki taka 5 tarikhe dibe"
         }

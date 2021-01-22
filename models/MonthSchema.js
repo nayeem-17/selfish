@@ -13,9 +13,6 @@ exports.monthSchema = new mongoose.Schema({
         default: Date.now()
     },
     activeDates: [Date],
-    dayCount: Number,
-    dueAmount: Number,
-    address: String,
-    weekDay: [String],
-    isRunning: Boolean
+    dayCount: Number
+
 })

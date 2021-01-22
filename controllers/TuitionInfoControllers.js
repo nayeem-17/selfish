@@ -32,7 +32,8 @@ exports.updateTuiTionInfo = async (req, res) => {
     try {
         const data = req.body
         const updated = await TuitionInfo.findByIdAndUpdate(req.params.id, data, {
-            new: true
+            new: true,
+            useFindAndModify: true
         })
         res.status(200).json({
             updated: updated,
