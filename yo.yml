@@ -1,0 +1,150 @@
+openapi: "3.0.2"
+info:
+  title: API Title
+  version: "1.0"
+servers:
+  - url: https://selfishh.herokuapp.com/
+paths:
+  /:
+    get:
+      responses:
+        "200":
+          description: OK
+  /getfulldata:
+    get:
+      description: To access all data from servers
+      responses:
+        "200":
+          description: A successfull response.
+  /createtuition:
+    post:
+      description: Update the data of a particuler id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/tuitionSchema"
+      responses:
+        "200":
+          description: A successfull response.
+  /updatetuitioninfo/{id}:
+    patch:
+      description: Update the data of a particuler id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: yes
+          example: "600aafc8c52663128624ebc6"
+          description: id of the tuition object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/tuitionSchema"
+      responses:
+        "200":
+          description: A successfull response.
+  /deletetuitioninfo/{id}:
+    delete:
+      description: Delete the data of a particuler id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: yes
+          example: "600aafc8c52663128624ebc6"
+          description: id of the tuition object
+      responses:
+        "200":
+          description: A successfull response.
+
+components:
+  schemas:
+    monthSchema:
+      type: object
+      properties:
+        monthNo:
+          type: integer
+          example: 09
+        startDate:
+          type: string
+          format: date
+          example: 2021-09-11
+        endDate:
+          type: string
+          format: date
+          example: 2021-09-11
+        dayCount:
+          type: integer
+          example: 09
+        activeDates:
+          type: array
+          items:
+            type: string
+            format: date
+          example: [2021-09-11, 2021-09-11, 2021-09-11]
+    contactSchema:
+      type: object
+      properties:
+        relation:
+          type: string
+          example: papa
+        phone:
+          type: integer
+          example: 8801764223436
+    paymentSchema:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          example: 2021-09-11
+        amount:
+          type: integer
+          example: 12000
+        note:
+          type: string
+          example: yo bruh
+    tuitionSchema:
+      type: object
+      properties:
+        studentName:
+          type: string
+          example: nayeem
+        salaryPerMonth:
+          type: integer
+          example: 10000
+        address:
+          type: string
+          example: polashi
+        isRunning:
+          type: boolean
+          example: true
+        totalEarned:
+          type: integer
+          example: 25000
+        dueAmount:
+          type: integer
+          example: 7500
+        contacts:
+          type: array
+          items:
+            $ref: "#/components/schemas/contactSchema"
+        payements:
+          type: array
+          items:
+            $ref: "#/components/schemas/paymentSchema"
+        weekDay:
+          type: array
+          items:
+            type: string
+            format: date
+        months:
+          type: array
+          items:
+            $ref: "#/components/schemas/monthSchema"
