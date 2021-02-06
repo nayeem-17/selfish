@@ -14,16 +14,19 @@ app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+const mongo_url = process.env.NODE_ENV !== 'PROD' ? process.env.MONGO_LOCAL : process.env.MONGO_CLOUD
+
 mongoose
-    .connect(process.env.MONGO_CLOUD, {
+    .connect(mongo_url, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
     .then(con => {
         console.log("Database Connection Established")
+        console.log("mongodb url is " + mongo_url)
     })
     .catch(e => {
-        console.log("Totally Fucked Up With Connecting Database , Man!")
+        console.log("Totally Fucked Up With Connecting Database , Man!" + mongo_url)
         console.log(e)
     })
 
@@ -35,7 +38,7 @@ mongoose
 *          "200":
 *            description: OK
 */
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.json({ data: "Hello world" }))
 
 /**
  * @swagger
@@ -128,5 +131,6 @@ const options = {
 };
 const swaggerDocs = swaggerJsdoc(options)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port} !`))
