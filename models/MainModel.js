@@ -4,6 +4,7 @@ const { monthSchema } = require("./MonthSchema");
 const { paymentSchema } = require("./PaymentSchema");
 
 const mainSchema = new mongoose.Schema({
+    userId: String,
     studentName: String,
     salaryPerMonth: Number,
     address: String,
@@ -27,6 +28,8 @@ exports.TuitionInfo = mongoose.model("TuitionInfo", mainSchema)
 *     monthSchema:
 *       type: object
 *       properties:
+*         userId:
+*           type: integer
 *         monthNo:
 *           type: integer
 *           example: 09

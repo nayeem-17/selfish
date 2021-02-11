@@ -5,7 +5,11 @@ const morgan = require('morgan')
 require('dotenv').config();
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
-const { getTuiTionInfo, createTuiTionInfo, updateTuiTionInfo, deleteTuiTionInfo } = require('./controllers/TuitionInfoControllers');
+const authRouter = require('./router/auth');
+const tuitionRouter = require('./router/tuitionRouter')
+const { register } = require('./controllers/userController');
+const { getAccessToken } = require('./controllers/authentication/authControllers');
+const { login } = require('./controllers/authentication/authMiddlewares');
 
 const port = process.env.PORT || 3000
 
@@ -30,85 +34,10 @@ mongoose
         console.log(e)
     })
 
-/**   
-* @swagger   
-*  /:
-*      get:
-*        responses:
-*          "200":
-*            description: OK
-*/
-app.get('/', (req, res) => res.json({ data: "Hello world" }))
-
-/**
- * @swagger
- * /getfulldata:   
- *  get:
- *   description: To access all data from servers
- *   responses:
- *       '200':
- *           description: A successfull response.
- */
-
-app.get('/getfulldata', getTuiTionInfo)
-/**
- *  @swagger
-  * /createtuition:
-  *   post:
-  *    description: Update the data of a particuler id
-  *    requestBody:
-  *      required: true
-  *      content:
-  *        application/json:
-  *          schema:
-  *            $ref: "#/components/schemas/tuitionSchema"
-  *    responses:
-  *      "200":
-  *        description: A successfull response. 
-  * */
-app.post('/createtuition', createTuiTionInfo)
-/**
- * @swagger
- * /updatetuitioninfo/{id}:   
- *  patch:
- *   description: Update the data of a particuler id
- *   parameters:
- *    - in: path
- *      name: id
- *      schema:
- *          type: string
- *      required: yes
- *      example: "600aafc8c52663128624ebc6"
- *      description: id of the tuition object
- *   requestBody:
- *      required: true
- *      content:
- *         application/json:  
- *           schema:
- *              $ref: '#/components/schemas/tuitionSchema'
- *   responses:
- *       '200':
- *           description: A successfull response.
- */
-app.patch('/updatetuitioninfo/:id', updateTuiTionInfo)
-/**
- * @swagger
- * /deletetuitioninfo/{id}:   
- *  delete:
- *   description: Delete the data of a particuler id
- *   parameters:
- *    - in: path
- *      name: id
- *      schema:
- *          type: string
- *      required: yes
- *      example: "600aafc8c52663128624ebc6"
- *      description: id of the tuition object
- *   responses:
- *       '200':
- *           description: A successfull response.
- */
-app.delete('/deletetuitioninfo/:id', deleteTuiTionInfo)
+app.use('/auth', authRouter)
+app.post('/registration', register)
+app.post('/token', [login, getAccessToken])
+app.use('/tuition', tuitionRouter)
 
 const options = {
     swaggerDefinition: {
@@ -125,7 +54,8 @@ const options = {
     },
     apis: [
         "*.js",
-        "./models/*.js"
+        "./models/*.js",
+        "./router/*js"
     ]
 
 };
