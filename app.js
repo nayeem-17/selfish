@@ -7,10 +7,6 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const authRouter = require('./router/auth');
 const tuitionRouter = require('./router/tuitionRouter')
-const { register } = require('./controllers/userController');
-const { getAccessToken } = require('./controllers/authentication/authControllers');
-const { login } = require('./controllers/authentication/authMiddlewares');
-
 const port = process.env.PORT || 3000
 
 const app = express()
@@ -35,8 +31,6 @@ mongoose
     })
 
 app.use('/auth', authRouter)
-app.post('/registration', register)
-app.post('/token', [login, getAccessToken])
 app.use('/tuition', tuitionRouter)
 
 const options = {

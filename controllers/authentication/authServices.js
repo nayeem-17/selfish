@@ -23,3 +23,4 @@ module.exports.isPasswordValid = (hashPassword, password) => {
         return false;
     }
 }
+
