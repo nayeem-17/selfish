@@ -45,6 +45,16 @@ const options = {
                 name: "dude"
             }
         },
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: "http",
+                    scheme: "bearer",
+                    bearerFormat: "JWT",
+                    in: "header",
+                },
+            },
+        }
     },
     apis: [
         "*.js",

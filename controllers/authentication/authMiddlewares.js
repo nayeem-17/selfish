@@ -23,6 +23,7 @@ module.exports.login = async (req, res, next) => {
 module.exports.isValidJWTToken = (req, res, next) => {
     if (req.headers['authorization']) {
         try {
+            console.log(req.headers);
             let authorization = req.headers['authorization'].split(' ');
             if (authorization[0] != 'Bearer') {
                 return res.status(401).json({});
