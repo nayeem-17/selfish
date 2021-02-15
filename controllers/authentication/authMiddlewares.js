@@ -3,11 +3,11 @@ const { userModel } = require('../../models/userSchema');
 const { isPasswordValid } = require('./authServices');
 
 module.exports.login = async (req, res, next) => {
-    const { username, password } = req.body;
-    const data = await userModel.find({ email: req.body.email });
+    const { username, email, password } = req.body;
+    const data = await userModel.find({ email: email });
     console.log(data[0]);
     const hashPass = data[0].password;
-    const { userId, email } = data[0];
+    const { userId } = data[0];
     if (hashPass && isPasswordValid(hashPass, password)) {
         req.body = {
             userId: userId,

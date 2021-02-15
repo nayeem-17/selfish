@@ -3,21 +3,72 @@ info:
   title: API Title
   version: "1.0"
 servers:
-  - url: https://selfishh.herokuapp.com/
+  - url: http://localhost:8080
 paths:
-  /:
-    get:
+  /auth/registration:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: cooper
+                email:
+                  type: string
+                  example: abc@gmail.com
+                password:
+                  type: string
+                  example: abc123
+      tags:
+        - "user"
       responses:
         "200":
-          description: OK
-  /getfulldata:
+          description: ok
+        "404":
+          description: error
+  /auth/token:
+    post:
+      responses:
+        "200":
+          description: ok
+        "400":
+          description: error
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: cooper
+                password:
+                  type: string
+                  example: abc123
+      tags:
+        - "user"
+
+  /tuition/getfulldata:
     get:
+      tags:
+        - "Tuition"
+      security:
+        - bearerAuth: []
       description: To access all data from servers
       responses:
         "200":
           description: A successfull response.
-  /createtuition:
+  /tuition/createtuition:
     post:
+      tags:
+        - "Tuition"
+      security:
+        - bearerAuth: []
       description: Update the data of a particuler id
       requestBody:
         required: true
@@ -28,8 +79,12 @@ paths:
       responses:
         "200":
           description: A successfull response.
-  /updatetuitioninfo/{id}:
+  /tuition/updatetuitioninfo/{id}:
     patch:
+      security:
+        - bearerAuth: []
+      tags:
+        - "Tuition"
       description: Update the data of a particuler id
       parameters:
         - in: path
@@ -48,8 +103,12 @@ paths:
       responses:
         "200":
           description: A successfull response.
-  /deletetuitioninfo/{id}:
+  /tuition/deletetuitioninfo/{id}:
     delete:
+      security:
+        - bearerAuth: []
+      tags:
+        - "Tuition"
       description: Delete the data of a particuler id
       parameters:
         - in: path
@@ -148,3 +207,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/monthSchema"
+
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT # optional, arbitrary value for documentation purposes
+# 2) Apply the security globally to all operations
