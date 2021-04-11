@@ -1,5 +1,4 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 require('dotenv').config();
@@ -11,8 +10,8 @@ const port = process.env.PORT || 3000
 
 const app = express()
 app.use(morgan('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 const mongo_url = process.env.NODE_ENV !== 'PROD' ? process.env.MONGO_LOCAL : process.env.MONGO_CLOUD
 
@@ -63,6 +62,7 @@ const options = {
     ]
 
 };
+
 const swaggerDocs = swaggerJsdoc(options)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
