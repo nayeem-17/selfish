@@ -5,14 +5,14 @@ const { isPasswordValid, makeHash } = require('./authServices');
 module.exports.login = async(req, res, next) => {
     const { email, password } = req.body;
     const data = await userModel.find({ email: email });
-    console.log(data);
-    console.log(password + " " + email);
-    console.log(makeHash(password))
-        // if (!data) {
-        //     return res.status(500).json({
-        //         error: data.error
-        //     });
-        // }
+    // console.log(data);
+    // console.log(password + " " + email);
+    // console.log(makeHash(password))
+    // if (!data) {
+    //     return res.status(500).json({
+    //         error: data.error
+    //     });
+    // }
 
     if (data.length == 0) {
         return res.status(404).json({
