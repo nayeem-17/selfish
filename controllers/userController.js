@@ -26,7 +26,7 @@ module.exports.register = async(req, res) => {
             password: makeHash(password),
             code: verification_code
         }
-        const newUser = await pendingUserModel.create(userData);
+        const newUser = await userModel.create(userData);
 
         res.status(200).json({
             successful: true,

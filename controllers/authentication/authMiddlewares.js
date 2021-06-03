@@ -1,17 +1,30 @@
 const jwt = require('jsonwebtoken');
 const { userModel } = require('../../models/userSchema');
-const { isPasswordValid } = require('./authServices');
+const { isPasswordValid, makeHash } = require('./authServices');
 
-module.exports.login = async (req, res, next) => {
-    const { username, email, password } = req.body;
+module.exports.login = async(req, res, next) => {
+    const { email, password } = req.body;
     const data = await userModel.find({ email: email });
-    console.log(data[0]);
+    console.log(data);
+    console.log(password + " " + email);
+    console.log(makeHash(password))
+        // if (!data) {
+        //     return res.status(500).json({
+        //         error: data.error
+        //     });
+        // }
+
+    if (data.length == 0) {
+        return res.status(404).json({
+            error: "No account found"
+        });
+    }
     const hashPass = data[0].password;
     const { userId } = data[0];
     if (hashPass && isPasswordValid(hashPass, password)) {
         req.body = {
             userId: userId,
-            username: username,
+            username: data[0].username,
             email: email
         }
         console.log(req.body);
